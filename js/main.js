@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.latest-product-card').forEach(card => {
             card.addEventListener('click', function() {
                 const product = this.querySelector('h3').textContent;
-                console.log(`Navigating to ${product} details...`);
+                window.location.href = 'product-details.html';
             });
         });
 
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Quick view functionality
-        document.querySelectorAll('.quick-view, .search-btn').forEach(btn => {
+        document.querySelectorAll('.quick-view').forEach(btn => {
             btn.addEventListener('click', function() {
                 const productCard = this.closest('.product-card');
                 const productName = productCard.querySelector('.overlay-title, .card-title').textContent;
@@ -294,6 +294,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     this.querySelector('i').style.color = '';
                     alert(`${productName} removed from wishlist!`);
+                }
+            });
+        });
+
+        // Product image click to details page
+        document.querySelectorAll('.product-image').forEach(imageDiv => {
+            imageDiv.addEventListener('click', function(e) {
+                // Prevent navigation if clicking on action buttons (Wishlist/Cart/WhatsApp)
+                if (!e.target.closest('.icon-btn')) {
+                    window.location.href = 'product-details.html';
+                }
+            });
+        });
+
+        // Remove item from cart functionality
+        document.querySelectorAll('.remove-item').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const row = this.closest('tr');
+                if (row) {
+                    // Add a simple fade out effect before removing
+                    row.style.transition = 'opacity 0.3s ease';
+                    row.style.opacity = '0';
+                    setTimeout(() => {
+                        row.remove();
+                    }, 300);
                 }
             });
         });
