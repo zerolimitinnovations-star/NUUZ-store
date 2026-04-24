@@ -7,46 +7,24 @@ document.addEventListener('DOMContentLoaded', function() {
             offset: 100
         });
 
-        // Navbar scroll effect
+        // Combined scroll effects (Navbar and Scroll to Top)
         const navbar = document.getElementById('mainNav');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll to Top
         const scrollTopBtn = document.getElementById('scrollTop');
 
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('show');
-            } else {
-                scrollTopBtn.classList.remove('show');
-            }
+        window.addEventListener('scroll', function() {
+            const scrollPos = window.scrollY || window.pageYOffset;
+            
+            // Navbar scrolled state
+            navbar?.classList.toggle('scrolled', scrollPos > 100);
+            
+            // Scroll-to-top button visibility
+            scrollTopBtn?.classList.toggle('show', scrollPos > 300);
         });
 
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
-            });
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
             });
         });
 
@@ -61,6 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         };
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== "#") {
+                    e.preventDefault();
+                    window.scrollToSection(href.substring(1));
+                }
+            });
+        });
 
         // Add hover effect to latest product cards
         document.querySelectorAll('.latest-product-card').forEach(card => {
@@ -91,13 +80,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 const originalCount = originalItems.length;
                 if (originalCount === 0) return;
                 
-                let itemWidth = 0;
+                let itemWidth = originalItems[0].offsetWidth;
                 const updateDimensions = () => {
                     const firstItem = inner.querySelector('.carousel-item');
                     if (firstItem) itemWidth = firstItem.offsetWidth;
                 };
 
-                updateDimensions();
                 window.addEventListener('resize', updateDimensions);
 
                 originalItems.forEach(item => item.classList.remove('active'));
@@ -113,8 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const updateIndicators = () => {
                     const firstItem = inner.querySelector('.carousel-item');
                     if (!firstItem || !indicators || indicators.length === 0) return;
-                    // Use a small epsilon to handle sub-pixel rounding
-                    const index = Math.round((inner.scrollLeft + 1) / itemWidth) % originalCount;
+                    
+                    const index = Math.round(inner.scrollLeft / itemWidth) % originalCount;
                     
                     indicators.forEach((dot, i) => {
                         const isActive = i === index;
@@ -135,13 +123,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         // Silently jump back to the start once the transition into clones is complete
                         setTimeout(() => {
-                            if (inner.scrollLeft >= originalWidth - 2) {
+                            if (Math.ceil(inner.scrollLeft) >= originalWidth - 1) {
                                 inner.scrollTo({ left: 0, behavior: 'auto' });
                             }
                             isScrolling = false;
                         }, 500); 
                     } else {
-                        if (inner.scrollLeft <= 2) {
+                        if (inner.scrollLeft <= 1) {
                             inner.scrollTo({ left: originalWidth, behavior: 'auto' });
                         }
                         inner.scrollBy({ left: -itemWidth, behavior: 'smooth' });
@@ -163,9 +151,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 indicators?.forEach((dot, i) => {
                     dot.addEventListener('click', (e) => {
                         e.preventDefault();
-                        const firstItem = inner.querySelector('.carousel-item');
-                        if (!firstItem) return;
-                        const itemWidth = firstItem.offsetWidth;
                         inner.scrollTo({ left: i * itemWidth, behavior: 'smooth' });
                         startAutoScroll();
                     });

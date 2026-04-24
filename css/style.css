@@ -23,8 +23,8 @@
         }
         @media (min-width: 1200px) {
             .container, .container-fluid {
-                padding-left: 1in !important;
-                padding-right: 1in !important;
+                padding-left: 96px !important;
+                padding-right: 96px !important;
             }
         }
 
@@ -190,6 +190,12 @@
 
         .section-title {
             font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+        }
+
+        .hero-content h1, 
+        .hero-content p,
+        .shop-banner-content h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .text-accent-gold { color: var(--accent-gold) !important; }
