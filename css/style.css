@@ -23,8 +23,8 @@
         }
         @media (min-width: 1200px) {
             .container, .container-fluid {
-                padding-left: 96px !important;
-                padding-right: 96px !important;
+                padding-left: 96px !important; /* Converted 1in to 96px for consistency */
+                padding-right: 96px !important; /* Converted 1in to 96px for consistency */
             }
         }
 
@@ -192,6 +192,7 @@
             font-size: clamp(1.5rem, 3.2vw, 2.5rem);
         }
 
+        /* Moved text-shadow from inline styles in HTML for better maintainability */
         .hero-content h1, 
         .hero-content p,
         .shop-banner-content h1 {

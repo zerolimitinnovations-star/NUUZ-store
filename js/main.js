@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         
                         // Silently jump back to the start once the transition into clones is complete
                         setTimeout(() => {
-                            if (Math.ceil(inner.scrollLeft) >= originalWidth - 1) {
+                            if (Math.ceil(inner.scrollLeft) >= originalWidth - 1) { // Use Math.ceil for more robust sub-pixel handling
                                 inner.scrollTo({ left: 0, behavior: 'auto' });
                             }
                             isScrolling = false;
