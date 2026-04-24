@@ -49,10 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-});
 
         // Scroll to section function
-        function scrollToSection(sectionId) {
+        window.scrollToSection = function(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
                 const offsetTop = section.offsetTop - 80;
@@ -61,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth'
                 });
             }
-        }
+        };
 
         // Add hover effect to latest product cards
         document.querySelectorAll('.latest-product-card').forEach(card => {
@@ -313,3 +312,4 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+});
