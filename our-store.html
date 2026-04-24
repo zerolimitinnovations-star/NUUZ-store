@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Store - NUUZ Horse Shoe Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/nuuz-logo.webp" alt="NUUZ Horse Shoe Store">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="our-store.html">Our Store</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Videos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shop Banner Section -->
+    <section class="shop-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="shop-banner-content">
+                        <h1>Product</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <main id="main-content" class="shop-section">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar Filters -->
+                <div class="col-lg-3 col-md-4">
+                    <div class="shop-sidebar">
+                        <h3 class="sidebar-title">Filters</h3>
+                        
+                        <!-- Categories -->
+                        <div class="filter-section">
+                            <h4>Categories</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="#" class="category-link active">All Products</a></li>
+                                <li><a href="#" class="category-link">Standard Horseshoes</a></li>
+                                <li><a href="#" class="category-link">Custom Horseshoes</a></li>
+                                <li><a href="#" class="category-link">Farrier Tools</a></li>
+                                <li><a href="#" class="category-link">Hoof Care Products</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Price Range -->
+                        <div class="filter-section">
+                            <h4>Price Range</h4>
+                            <input type="range" class="form-range" id="priceRange" min="0" max="500" step="10">
+                            <div class="d-flex justify-content-between">
+                                <span>$0</span>
+                                <span>$500</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Size -->
+                        <div class="filter-section">
+                            <h4>Size</h4>
+                            <div class="size-options">
+                                <button class="btn btn-outline-secondary btn-sm">Small</button>
+                                <button class="btn btn-outline-secondary btn-sm">Medium</button>
+                                <button class="btn btn-outline-secondary btn-sm">Large</button>
+                                <button class="btn btn-outline-secondary btn-sm">XL</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Material -->
+                        <div class="filter-section">
+                            <h4>Material</h4>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="steel">
+                                <label class="form-check-label" for="steel">Steel</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="aluminum">
+                                <label class="form-check-label" for="aluminum">Aluminum</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="composite">
+                                <label class="form-check-label" for="composite">Composite</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="col-lg-9 col-md-8">
+                    <div class="shop-content">
+                        <!-- Shop Header -->
+                        <div class="shop-header d-flex justify-content-between align-items-center mb-4">
+                            <h1 class="shop-title">Our Store</h1>
+                            <div class="view-options">
+                                <button class="btn btn-outline-secondary me-2" id="gridView" title="Grid View">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button class="btn btn-outline-secondary" id="listView" title="List View">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Sort Options -->
+                        <div class="sort-options mb-4">
+                            <select class="form-select" style="width: auto;">
+                                <option>Sort by: Default</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Newest First</option>
+                                <option>Best Selling</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Products Grid -->
+                        <div class="products-grid row">
+                            <!-- Product 1 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-02.png" class="card-img-top" alt="Standard Horseshoe">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Standard Horseshoe</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$45.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 2 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-01.png" class="card-img-top" alt="Custom Horseshoe">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Custom Horseshoe</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$75.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 3 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-03.png" class="card-img-top" alt="Farrier Tool Kit">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Farrier Tool Kit</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$120.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 4 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-05.png" class="card-img-top" alt="Hoof Polish">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Hoof Polish</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$25.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 5 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-04.png" class="card-img-top" alt="Horseshoe Nails">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Horseshoe Nails</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$15.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 6 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-06.png" class="card-img-top" alt="Professional Hoof Pick">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Professional Hoof Pick</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$18.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 7 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-011.png" class="card-img-top" alt="Orthopedic Shoe">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Orthopedic Shoe</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$95.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 8 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-03.png" class="card-img-top" alt="Performance Studs">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Performance Studs</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$30.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 9 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-02.png" class="card-img-top" alt="Hoof Moisturizer">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Hoof Moisturizer</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$22.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 10 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-04.png" class="card-img-top" alt="Rasp & File Set">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Rasp & File Set</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$55.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 11 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-05.png" class="card-img-top" alt="Hoof Nippers">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Hoof Nippers</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$85.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product 12 -->
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div class="product-card card h-100">
+                                    <div class="product-image">
+                                        <img src="img/Horse-Shoe-06.png" class="card-img-top" alt="Therapeutic Gel Pad">
+                                        <div class="product-overlay">
+                                            <div class="product-icons">
+                                                <button class="icon-btn love-btn" title="Add to Wishlist">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                                <button class="icon-btn cart-btn" title="Add to Cart">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </button>
+                                                <button class="icon-btn search-btn" title="Quick View">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                            <div class="product-info">
+                                                <h5 class="overlay-title">Therapeutic Gel Pad</h5>
+                                                <div class="overlay-price">
+                                                    <span class="current-price">$65.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+
+                        <!-- Pagination -->
+                        
+                        <!-- Pagination -->
+                        <nav aria-label="Product pagination" class="mt-5">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a href="index.html">
+                        <img src="img/nuuz-logo.webp" alt="NUUZ" class="footer-logo mb-4">
+                    </a>
+                    <p class="mb-3">NUUZ Horse Shoe Supply | precision 3D horseshoes, custom fit and engineered for performance.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="our-store.html">Shop</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#blog">Insights</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Precision CAD Design</a></li>
+                        <li><a href="#">Industrial 3D Printing</a></li>
+                        <li><a href="#">Advanced Polymer Materials</a></li>
+                        <li><a href="#">Custom Orders</a></li>
+                        <li><a href="#">Farrier Services</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Returns & Warranty</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Installation Guides</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-phone"></i> 1-800-NUUZ-SHOES</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> hello@nuuzshoes.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Mon–Fri 9am–5pm</a></li>
+                        <li><a href="#"><i class="fas fa-comments"></i> Live Chat</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NUUZ Horse Shoe Supply. All rights reserved. | <a href="#" style="color: inherit;">Privacy Policy</a> | <a href="#" style="color: inherit;">Terms</a> | <a href="#" style="color: inherit;">Shipping Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>

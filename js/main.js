@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function() {
 
         // Initialize AOS
         AOS.init({
@@ -7,8 +8,8 @@
         });
 
         // Navbar scroll effect
+        const navbar = document.getElementById('mainNav');
         window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('mainNav');
             if (window.scrollY > 100) {
                 navbar.classList.add('scrolled');
             } else {
@@ -48,6 +49,7 @@
                 }
             });
         });
+});
 
         // Scroll to section function
         function scrollToSection(sectionId) {
@@ -61,11 +63,11 @@
             }
         }
 
-        // Add hover effect to destination cards
-        document.querySelectorAll('.destination-card').forEach(card => {
+        // Add hover effect to latest product cards
+        document.querySelectorAll('.latest-product-card').forEach(card => {
             card.addEventListener('click', function() {
-                const destination = this.querySelector('h3').textContent;
-                console.log(`Navigating to ${destination} details...`);
+                const product = this.querySelector('h3').textContent;
+                console.log(`Navigating to ${product} details...`);
             });
         });
 
@@ -90,7 +92,15 @@
                 const originalCount = originalItems.length;
                 if (originalCount === 0) return;
                 
-                // Remove Bootstrap active classes to prevent CSS conflicts
+                let itemWidth = 0;
+                const updateDimensions = () => {
+                    const firstItem = inner.querySelector('.carousel-item');
+                    if (firstItem) itemWidth = firstItem.offsetWidth;
+                };
+
+                updateDimensions();
+                window.addEventListener('resize', updateDimensions);
+
                 originalItems.forEach(item => item.classList.remove('active'));
 
                 // Clone items and append them to create a seamless loop buffer
@@ -104,8 +114,6 @@
                 const updateIndicators = () => {
                     const firstItem = inner.querySelector('.carousel-item');
                     if (!firstItem || !indicators || indicators.length === 0) return;
-                    
-                    const itemWidth = firstItem.offsetWidth;
                     // Use a small epsilon to handle sub-pixel rounding
                     const index = Math.round((inner.scrollLeft + 1) / itemWidth) % originalCount;
                     
@@ -120,11 +128,6 @@
 
                 const scrollOne = (direction) => {
                     if (isScrolling) return;
-                    
-                    const firstItem = inner.querySelector('.carousel-item');
-                    if (!firstItem) return;
-                    
-                    const itemWidth = firstItem.offsetWidth;
                     const originalWidth = itemWidth * originalCount;
                     isScrolling = true;
 
@@ -207,27 +210,106 @@
         setupSmoothCarousel('servicesCarousel');
         setupSmoothCarousel('reviewsCarousel');
 
-        // Newsletter Popup logic
-        let newsletterTriggered = false;
-        const showNewsletter = () => {
-            if (!newsletterTriggered) {
-                newsletterTriggered = true;
-                setTimeout(() => {
-                    const modalEl = document.getElementById('newsletterModal');
-                    const modal = new bootstrap.Modal(modalEl);
-                    modal.show();
-                }, 5000); // 5 second delay
-            }
-        };
+        /* Particle effect removed as requested */
 
-        // Trigger when user starts scrolling
-        window.addEventListener('scroll', showNewsletter, { once: true });
+        // Shop functionality
+        // View switching (Grid/List)
+        const gridViewBtn = document.getElementById('gridView');
+        const listViewBtn = document.getElementById('listView');
+        const productsGrid = document.querySelector('.products-grid');
 
-        // Handle Form Submission
-        document.getElementById('newsletterForm')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for subscribing to NUUZ Horse Shoe Supply!');
-            bootstrap.Modal.getInstance(document.getElementById('newsletterModal')).hide();
+        if (gridViewBtn && listViewBtn && productsGrid) {
+            gridViewBtn.addEventListener('click', function() {
+                gridViewBtn.classList.add('active');
+                listViewBtn.classList.remove('active');
+                productsGrid.classList.remove('list-view');
+                productsGrid.classList.add('row');
+            });
+
+            listViewBtn.addEventListener('click', function() {
+                listViewBtn.classList.add('active');
+                gridViewBtn.classList.remove('active');
+                productsGrid.classList.add('list-view');
+                productsGrid.classList.remove('row');
+            });
+        }
+
+        // Category filtering
+        document.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                // Here you would filter products based on category
+                console.log('Filtering by category:', this.textContent.trim());
+            });
         });
 
-        /* Particle effect removed as requested */
+        // Size filtering
+        document.querySelectorAll('.size-options .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                // Here you would filter products based on selected sizes
+                console.log('Size filter toggled:', this.textContent);
+            });
+        });
+
+        // Material filtering
+        document.querySelectorAll('.filter-section input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                // Here you would filter products based on selected materials
+                console.log('Material filter:', this.id, this.checked);
+            });
+        });
+
+        // Price range slider
+        const priceRange = document.getElementById('priceRange');
+        if (priceRange) {
+            priceRange.addEventListener('input', function() {
+                // Here you would filter products based on price
+                console.log('Price range:', this.value);
+            });
+        }
+
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart, .cart-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productName = productCard.querySelector('.overlay-title, .card-title').textContent;
+                
+                console.log('Added to cart:', productName.trim());
+                // Here you would add the product to cart
+                alert(`${productName} added to cart!`);
+            });
+        });
+
+        // Quick view functionality
+        document.querySelectorAll('.quick-view, .search-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productName = productCard.querySelector('.overlay-title, .card-title').textContent;
+
+                console.log('Quick view:', productName.trim());
+                // Here you would show a quick view modal
+                alert(`Quick view for ${productName}`);
+            });
+        });
+
+        // Wishlist functionality
+        document.querySelectorAll('.love-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productName = productCard.querySelector('.overlay-title, .card-title').textContent;
+
+                console.log('Added to wishlist:', productName.trim());
+                // Here you would add the product to wishlist
+                this.classList.toggle('active');
+                if (this.classList.contains('active')) {
+                    this.querySelector('i').style.color = '#e74c3c';
+                    alert(`${productName} added to wishlist!`);
+                } else {
+                    this.querySelector('i').style.color = '';
+                    alert(`${productName} removed from wishlist!`);
+                }
+            });
+        });
