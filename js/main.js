@@ -62,6 +62,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Blog card interactions
         document.querySelectorAll('.blog-link').forEach(link => {
             link.addEventListener('click', function(e) {
+<<<<<<< HEAD
+=======
+                e.preventDefault();
+>>>>>>> eca8f9379b3ff667f18951035091c33461c68725
                 console.log('Opening blog post...');
             });
         });
@@ -321,6 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+<<<<<<< HEAD
 
         // Newsletter Modal Auto-Trigger
         const newsletterModalEl = document.getElementById('newsletterModal');
@@ -335,4 +340,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 // }
             }, 2000);
         }
+=======
+>>>>>>> eca8f9379b3ff667f18951035091c33461c68725
 });
