@@ -719,20 +719,14 @@
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, rgba(0, 27, 58, 0.85), rgba(0, 27, 58, 0.9)), 
-<<<<<<< HEAD
-                        url('../img/Travel-banner.jpg');
-=======
-                        url('../img/equine-cta-banner.jpg');
->>>>>>> eca8f9379b3ff667f18951035091c33461c68725
+            background: linear-gradient(135deg, rgba(0, 27, 58, 0.85), rgba(0, 27, 58, 0.9)),
+                        url('../img/CTA-banner.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            position: relative;
-            color: white;
-            padding: 120px 0;
+            padding: 100px 0;
             text-align: center;
-            overflow: hidden;
+            color: white;
         }
 
         .cta-section .container {
@@ -1710,7 +1704,6 @@
         padding-left: 30px !important;
         padding-right: 30px !important;
     }
-<<<<<<< HEAD
 }
 
 /* Checkout Page Styles */
@@ -1913,6 +1906,4 @@
 
 .bg-primary-blue {
     background-color: var(--primary-blue) !important;
-=======
->>>>>>> eca8f9379b3ff667f18951035091c33461c68725
 }
