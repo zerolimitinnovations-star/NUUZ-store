@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bespoke 3D Horseshoe - NUUZ Horse Shoe Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light scrolled" id="mainNav">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/nuuz-logo.webp" alt="NUUZ Horse Shoe Store">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="our-store.html">Our Store</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-cart" href="cart.html" title="View Cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Banner -->
+    <section class="shop-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="shop-banner-content">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb mt-2">
+                                <li class="breadcrumb-item"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                                <li class="breadcrumb-item"><a href="our-store.html" class="text-white text-decoration-none">Shop</a></li>
+                                <li class="breadcrumb-item active text-accent-gold" aria-current="page">Bespoke 3D Horseshoe</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main-content" class="section-padding">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Product Images -->
+                <div class="col-lg-6">
+                    <div class="product-gallery">
+                        <div class="main-image-container border mb-3">
+                            <img src="img/Horse-Shoe-011.png" id="expandedImg" class="img-fluid w-100 h-100" alt="Bespoke 3D Horseshoe">
+                        </div>
+                        <div class="thumbnail-grid d-flex gap-2">
+                            <div class="thumb-wrapper active" onclick="switchImage(this)">
+                                <img src="img/Horse-Shoe-011.png" class="img-fluid" alt="View 1">
+                            </div>
+                            <div class="thumb-wrapper" onclick="switchImage(this)">
+                                <img src="img/Horse-Shoe-02.png" class="img-fluid" alt="View 2">
+                            </div>
+                            <div class="thumb-wrapper" onclick="switchImage(this)">
+                                <img src="img/Horse-Shoe-03.png" class="img-fluid" alt="View 3">
+                            </div>
+                            <div class="thumb-wrapper" onclick="switchImage(this)">
+                                <img src="img/Horse-Shoe-04.png" class="img-fluid" alt="View 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-lg-6">
+                    <div class="product-info-details">
+                        <h2 class="section-title mb-2">Bespoke 3D Printed Horseshoe</h2>
+                        <div class="product-rating mb-3">
+                            <i class="fas fa-star text-accent-gold"></i>
+                            <i class="fas fa-star text-accent-gold"></i>
+                            <i class="fas fa-star text-accent-gold"></i>
+                            <i class="fas fa-star text-accent-gold"></i>
+                            <i class="fas fa-star-half-alt text-accent-gold"></i>
+                            <span class="rating-count ms-2">(12 Customer Reviews)</span>
+                        </div>
+                        <h3 class="current-price h2 mb-4">$95.00</h3>
+                        <p class="text-light-desc mb-4">
+                            Engineered via advanced DFM (Design for Manufacturing) protocols, our titanium alloy 3D printed shoes offer unparalleled anatomical accuracy and orthopedic support for elite performance horses.
+                        </p>
+                        
+                        <div class="d-flex flex-wrap align-items-center gap-3 mb-4 pb-4 border-bottom">
+                            <div class="quantity-selector d-flex align-items-center border">
+                                <button class="btn btn-light rounded-0 border-end" onclick="updateQty(-1)">-</button>
+                                <input type="number" id="prodQty" value="1" min="1" class="form-control border-0 text-center fw-bold" style="width: 50px;">
+                                <button class="btn btn-light rounded-0 border-start" onclick="updateQty(1)">+</button>
+                            </div>
+                            <a href="cart.html" class="btn btn-cta fw-bold"><i class="fas fa-cart-plus me-2"></i> Add to Cart</a>
+                        </div>
+
+                        <div class="action-links d-flex gap-4 mb-4">
+                            <a href="#" class="text-decoration-none text-dark small fw-semibold"><i class="far fa-heart me-1"></i> Add to Wishlist</a>
+                            <a href="#" class="text-decoration-none text-dark small fw-semibold"><i class="fas fa-exchange-alt me-1"></i> Compare</a>
+                        </div>
+
+                        <div class="share-block d-flex align-items-center gap-3 mb-4">
+                            <span class="small fw-bold text-uppercase">Share:</span>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="share-icon-sm"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="share-icon-sm"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="share-icon-sm"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="share-icon-sm"><i class="fab fa-pinterest-p"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="product-meta pt-4 border-top">
+                            <p class="mb-1"><strong>SKU:</strong> NUZ-0012</p>
+                            <p class="mb-1"><strong>Category:</strong> Custom Horseshoes</p>
+                            <p class="mb-0"><strong>Materials:</strong> Titanium Alloy, SLS Polymer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Tabs -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <ul class="nav nav-tabs product-tabs border-bottom-0" id="productTab" role="tablist">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#description">Description</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#additional">Additional Info</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#reviews">Reviews (12)</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content border p-4 bg-white" id="productTabContent">
+                        <div class="tab-pane fade show active" id="description">
+                            <p>Our 3D printed horseshoes represent the pinnacle of equine bio-mechanical engineering. By utilizing high-resolution scans of the hoof, we create a digital twin that allows us to model a shoe with 100% anatomical accuracy.</p>
+                            <ul>
+                                <li>Lightweight Titanium Alloy construction.</li>
+                                <li>Internal lattice structures for superior shock absorption.</li>
+                                <li>Bespoke fit to prevent soft tissue strain.</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="additional">
+                            <table class="table table-sm">
+                                <tr><td><strong>Weight:</strong></td><td>180g - 250g (Custom)</td></tr>
+                                <tr><td><strong>Material:</strong></td><td>Ti6Al4V Grade 5 Titanium</td></tr>
+                                <tr><td><strong>Process:</strong></td><td>Selective Laser Sintering (SLS)</td></tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="reviews">
+                            <p>Customer reviews section coming soon...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="row mt-5">
+                <div class="col-12 text-center mb-4">
+                    <h3 class="section-title">Related Products</h3>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="product-card card">
+                        <div class="product-image">
+                            <img src="img/Horse-Shoe-02.png" class="card-img-top" alt="Performance Shoe">
+                            <div class="product-overlay">
+                                <h5 class="overlay-title">Standard Performance</h5>
+                                <span class="current-price">$45.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="product-card card">
+                        <div class="product-image">
+                            <img src="img/Horse-Shoe-03.png" class="card-img-top" alt="Ortho Shoe">
+                            <div class="product-overlay">
+                                <h5 class="overlay-title">Ortho Support</h5>
+                                <span class="current-price">$120.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="product-card card">
+                        <div class="product-image">
+                            <img src="img/Durable-Design.png" class="card-img-top" alt="Tough Shoe">
+                            <div class="product-overlay">
+                                <h5 class="overlay-title">All-Day Tough</h5>
+                                <span class="current-price">$65.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="product-card card">
+                        <div class="product-image">
+                            <img src="img/Horse-Shoe-06.png" class="card-img-top" alt="Natural Step Shoe">
+                            <div class="product-overlay">
+                                <h5 class="overlay-title">Natural Step</h5>
+                                <span class="current-price">$55.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <img src="img/nuuz-logo.webp" alt="NUUZ" class="footer-logo mb-4">
+                    <p>Precision 3D horseshoes, custom fit and engineered for equine performance.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="our-store.html">Shop</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <h5 class="footer-title">Contact Support</h5>
+                    <p><i class="fas fa-envelope me-2"></i> hello@nuuzshoes.com</p>
+                    <p><i class="fas fa-phone me-2"></i> 1-800-NUUZ-SHOES</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NUUZ Horse Shoe Supply. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Simple Gallery Switcher
+        function switchImage(thumbWrapper) {
+            const expandedImg = document.getElementById('expandedImg');
+            const newSrc = thumbWrapper.querySelector('img').src;
+            
+            // Add a subtle fade effect during the switch
+            expandedImg.style.opacity = '0.5';
+            setTimeout(() => {
+                expandedImg.src = newSrc;
+                expandedImg.style.opacity = '1';
+            }, 150);
+
+            document.querySelectorAll('.thumb-wrapper').forEach(t => t.classList.remove('active'));
+            thumbWrapper.classList.add('active');
+        }
+
+        // Quantity Control
+        function updateQty(change) {
+            const input = document.getElementById('prodQty');
+            let val = parseInt(input.value) + change;
+            if (val < 1) val = 1;
+            input.value = val;
+        }
+    </script>
+</body>
+</html>
